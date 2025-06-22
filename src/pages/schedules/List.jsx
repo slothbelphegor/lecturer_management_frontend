@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AxiosInstance from "../../components/AxiosInstance";
 
 import { Box, IconButton, Typography, Grid } from "@mui/material";
@@ -24,7 +24,7 @@ import { RoleContext } from "../../components/RoleContext";
 const ListSchedule = () => {
   const params = useParams();
   const lecturer_id = params.id;
-
+  const navigate = useNavigate()
   const [currentLecturer, setCurrentLecturer] = useState({});
   const [schedules, setSchedules] = useState([]);
   const [subjects, setSubjects] = useState([]);
@@ -148,8 +148,8 @@ const ListSchedule = () => {
       )
     )
       .then(() => {
-        alert("Schedules created");
-        setTimeout(window.location.reload(), 1500);
+        alert("Thêm lịch dạy thành công!");
+        setTimeout(navigate(0, { reloadDocument: true }), 1500);
       })
       .catch((error) => {
         console.error("Error details:", error.response?.data || error);
@@ -205,7 +205,6 @@ const ListSchedule = () => {
     try {
       await Promise.all(updatePromises);
       alert("Cập nhật lịch thành công!");
-      window.location.reload();
     } catch (error) {
       console.error("Update error:", error);
       alert("Có lỗi xảy ra khi cập nhật lịch.");
@@ -242,7 +241,7 @@ const ListSchedule = () => {
     try {
       await Promise.all(deletePromises);
       alert("Xóa lịch dạy thành công!");
-      window.location.reload();
+      navigate(0, { reloadDocument: true });
     } catch (error) {
       console.error("Update error:", error);
       alert("Có lỗi xảy ra khi xóa lịch.");
