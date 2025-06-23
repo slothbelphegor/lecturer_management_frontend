@@ -14,7 +14,7 @@ const PotentialHome = () => {
     AxiosInstance.get(`lecturers/me`)
       .then((res) => {
         setCurrentLecturer(res.data);
-        setHasInfo(res.data && res.data.id);
+        setHasInfo(res.data);
       })
       .catch((error) => {
         console.log(error.response.data);
