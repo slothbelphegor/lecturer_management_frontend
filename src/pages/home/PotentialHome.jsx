@@ -14,10 +14,11 @@ const PotentialHome = () => {
     AxiosInstance.get(`lecturers/me`)
       .then((res) => {
         setCurrentLecturer(res.data);
-        setHasInfo(true);
+        setHasInfo(res.data && res.data.id);
       })
       .catch((error) => {
         console.log(error.response.data);
+        setHasInfo(false)
       });
   };
 
