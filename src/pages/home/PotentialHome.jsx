@@ -7,18 +7,17 @@ import MyBarChart from "../../components/charts/BarChart";
 import MyChartBox from "../../components/charts/ChartBox";
 
 const PotentialHome = () => {
-  const [currentUser, setCurrentUser] = useState({});
-  const [currentLecturer, setCurrentLecturer] = useState({});
+  const [currentStatus, setCurrentStatus] = useState("Chưa có thông tin");
   const [hasInfo, setHasInfo] = useState(false);
   const getData = () => {
-    AxiosInstance.get(`lecturers/me`)
+    AxiosInstance.get(`lecturers/me/`)
       .then((res) => {
-        setCurrentLecturer(res.data);
-        setHasInfo(res.data);
+        setCurrentStatus(res.data.status);
+        setHasInfo(res.data && !!res.data.status);
       })
       .catch((error) => {
         console.log(error.response.data);
-        setHasInfo(false)
+        setHasInfo(false)a
       });
   };
 
@@ -43,13 +42,8 @@ const PotentialHome = () => {
         <Typography variant="h7" sx={{ textAlign: "center", marginBottom: "20px" }}>
             Tình trạng hồ sơ của bạn: {currentLecturer.status}
         </Typography>
-        </>
-        
-        
+        </> 
       )}
-      
-      
-
     </div>
   );
 };
