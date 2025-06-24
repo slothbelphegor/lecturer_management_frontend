@@ -40,7 +40,7 @@ const PotentialHome = () => {
         </Typography>
         <br/>
         <Typography variant="h7" sx={{ textAlign: "center", marginBottom: "20px" }}>
-            Tình trạng hồ sơ của bạn: {currentLecturer.status}
+            Tình trạng hồ sơ của bạn: {currentStatus}
         </Typography>
         </> 
       )}
