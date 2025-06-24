@@ -24,7 +24,7 @@ const ListEvaluation = () => {
       setCurrentLecturer(res.data);
       console.log(res.data);
     });
-    AxiosInstance.get(`evaluations/by-lecturer/${lecturer_id}`).then((res) => {
+    AxiosInstance.get(`evaluations/by-lecturer/${lecturer_id}/`).then((res) => {
       setEvaluations(res.data);
       console.log(res.data);
     });
