@@ -17,7 +17,7 @@ const PotentialHome = () => {
       })
       .catch((error) => {
         console.log(error.response.data);
-        setHasInfo(false)a
+        setHasInfo(false)
       });
   };
 
