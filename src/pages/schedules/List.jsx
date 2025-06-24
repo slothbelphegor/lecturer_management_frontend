@@ -58,7 +58,7 @@ const ListSchedule = () => {
       setCurrentLecturer(res.data);
     });
     AxiosInstance.get(`schedules/by-lecturer/${lecturer_id}`).then((res) => {
-      setSchedules(res.data);
+      setSchedules(Array.isArray(res.data) ? res.data : []);
       console.log(res.data);
       setSelectedSubjects([
         ...new Set(res.data.map((schedule) => schedule.classNames)),
