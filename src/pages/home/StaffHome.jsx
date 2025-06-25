@@ -38,28 +38,28 @@ const StaffHome = () => {
       .catch((error) => {
         console.log(error.response.data);
       });
-    AxiosInstance.get('lecturers/count_all_lecturers')
+    AxiosInstance.get('lecturers/count_all_lecturers/')
       .then((res) => {
         setAllLecturersCount(res.data)
       })
       .catch((error) => {
         console.log(error.response)
       })
-    AxiosInstance.get('lecturers/count_potential_lecturers')
+    AxiosInstance.get('lecturers/count_potential_lecturers/')
       .then((res) => {
         setPotentialLecturersCount(res.data)
       })
       .catch((error) => {
         console.log(error.response)
       })
-    AxiosInstance.get(`recommendations/count_unchecked`)
+    AxiosInstance.get(`recommendations/count_unchecked/`)
       .then((res) => {
         setPendingRecommendations(res.data)
       })
       .catch((error) => {
         console.log(error.response)
       })
-    AxiosInstance.get('lecturers/count_pending_lecturers')
+    AxiosInstance.get('lecturers/count_pending_lecturers/')
       .then((res) => {
         setPendingLecturers(res.data)
       })
